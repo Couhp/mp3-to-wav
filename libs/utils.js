@@ -134,11 +134,7 @@ module.exports = {
   ensurePathExists(dirPath) {
 
     if (!dirPath) return
-    let splitDirPath = dirPath.split('/')
-    if (splitDirPath.length > 1) {
-      splitDirPath.pop()
-      splitDirPath = splitDirPath.join('/')
-    }
+    let splitDirPath = path.dirname(dirPath);
     if (!fs.pathExistsSync(splitDirPath)) {
       fs.mkdirpSync(splitDirPath)
     }
